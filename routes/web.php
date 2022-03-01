@@ -1,6 +1,8 @@
 <?php
 
 use App\Events\ChatEvent;
+use App\Http\Livewire\Chat;
+use App\Http\Livewire\Counter;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,3 +23,7 @@ Route::get('/', function () {
 Route::get('/sending', function () {
     broadcast(new ChatEvent(['nama' => 'lugas', "pesan" => date("Y-m-d H:i:s") . " ini pesannya", "chat_id" => "1"]));
 });
+
+Route::get('/coba', Counter::class);
+
+Route::get('/chat', Chat::class);
