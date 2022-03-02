@@ -69,7 +69,7 @@
                 <div class="row">
                     <div class="col-md-12 chat-conversation">
                         <ul class="list-group list-group-unstyle">
-                            <li class="list-group-item">
+                            {{-- <li class="list-group-item">
                                 <div class="conversation-list wi">
                                     <img class="ava" src="https://avatars.dicebear.com/api/miniavs/Muhammad Fahmi.svg?b=%23ffc800&size=64" alt="" srcset="">
                                     <div class="chat-content">
@@ -148,16 +148,16 @@
                                         </div>
                                     </div>
                                 </div>
-                            </li>
+                            </li> --}}
+                            @foreach ($chat_conversations as $conversation)
+                                <livewire:chat-conversations :conversation="$conversation" />
+                            @endforeach
                         </ul>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-12">
-                        <form action="" method="post" class="chat-rep-form">
-                            <input placeholder="Tulis pesan balasan disini..." name="message" type="text" class="form-control">
-                            <button type="submit" class="btn btn-primary btn-submit">Kirim <i class="fa-solid fa-paper-plane"></i></button>
-                        </form>
+                        <livewire:chat-message-form/>
                     </div>
                 </div>
             </div>
