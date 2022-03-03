@@ -1,0 +1,233 @@
+// Custom.scss
+// Option B: Include parts of Bootstrap
+
+// 1. Include functions first (so you can manipulate colors, SVGs, calc, etc)
+@import "node_modules/bootstrap/scss/functions";
+
+// 2. Include any default variable overrides here
+
+// 3. Include remainder of required Bootstrap stylesheets
+@import "./custom/variables";
+@import "node_modules/bootstrap/scss/mixins";
+@import "node_modules/bootstrap/scss/root";
+
+// 4. Include any optional Bootstrap CSS as needed
+@import "node_modules/bootstrap/scss/utilities";
+@import "node_modules/bootstrap/scss/reboot";
+@import "node_modules/bootstrap/scss/type";
+@import "node_modules/bootstrap/scss/images";
+@import "node_modules/bootstrap/scss/containers";
+@import "node_modules/bootstrap/scss/grid";
+@import "node_modules/bootstrap/scss/helpers";
+
+// 5. Optionally include utilities API last to generate classes based on the Sass map in `_utilities.scss`
+@import "node_modules/bootstrap/scss/utilities/api";
+
+// 6. Add additional custom code here
+@import "node_modules/bootstrap/scss/bootstrap";
+
+@import "./custom/fontawesome/scss/fontawesome.scss";
+@import "./custom/fontawesome/scss/solid.scss";
+@import "./custom/fontawesome/scss/brands.scss";
+
+.navbar-brand {
+    .logo {
+        width: 50px;
+    }
+}
+
+.ml-auto {
+    margin-left: auto;
+}
+
+#chat-page {
+    .card {
+        border-radius: 22px;
+    }
+
+    .chat-person-list {
+        margin: 15px 20px;
+        img.ava {
+            width        : 48px;
+            height       : 48px;
+            border-radius: 24px;
+            margin-right : 10px;
+        }
+
+        .list-group-item {
+            margin-top: 12px;
+            border: 0px;
+            display: flex;
+            align-items: center;
+
+            .bio {
+                width: 100%;
+                .name {
+                    margin: 0px;
+                    font-weight: 600;
+                }
+                .stat {
+                    margin: 0px;
+                    color: $gray-600;
+                }
+            }
+
+            .last-respose-time {
+                color: $gray-600;
+            }
+        }
+
+        .list-group-item:first-child {
+            margin-top: 0px;
+        }
+    }
+
+    .chat-body {
+        padding: 30px 40px;
+
+        .chat-conversation {
+            height: calc(100vh - (94px + 60px + 60px));
+            margin-bottom: 20px;
+            overflow-x: hidden;
+            scroll-behavior: auto;
+            overflow-y: scroll;
+
+            .list-group-unstyle {
+                border: 0px;
+                .list-group-item {
+                    border: 0px;
+                    padding-top: 0px;
+                    padding-bottom: 10px;
+                }
+            }
+
+            .conversation-list {
+                display: flex;
+                flex-direction: row;
+                align-items: flex-start;
+                justify-content: flex-start;
+
+                .ava {
+                    width: 48px;
+                    height: 48px;
+                    border-radius: 24px;
+                    margin-right: 10px;
+                }
+                .chat-content {
+                    min-width: 40%;
+                    max-width: 65%;
+                    .bubble {
+                        background   : #FFDDD2;
+                        border-radius: 0px 10px 10px 10px;
+                        padding      : 10px 15px;
+                        .sender {
+                            color: $gray-600;
+                            font-size: small;
+                        }
+                        .msg {
+                            color: #000;
+                        }
+                        .reply-from {
+                            border-radius   : 7px;
+                            background-color: rgb(255 255 255 / 70%);
+                            margin-bottom   : 10px;
+                            .card-body {
+                                padding: 5px;
+                                font-size: small;
+                                p {
+                                    margin: 0px;
+                                }
+                            }
+                        }
+                    }
+                    .send-time {
+                        font-size: small;
+                        color: $gray-500;
+                    }
+                }
+            }
+            .conversation-list.wi {
+                .chat-content {
+                    .bubble {
+                        background : #006D77;
+                        .sender {
+                            color: #ffffffbf;
+                        }
+                        .msg {
+                            color: #fff;
+                        }
+                    }
+                }
+            }
+            .conversation-list.hide-ava {
+                img.ava {
+                    opacity: 0;
+                }
+            }
+            .conversation-list.right {
+                flex-direction: row-reverse;
+                img.ava {
+                    display: none;
+                    opacity: 0;
+                }
+                .chat-content {
+                    text-align: right;
+                    .bubble {
+                        border-radius: 10px 0px 10px 10px;
+                    }
+                }
+            }
+        }
+        .chat-rep-form {
+            display: flex;
+            align-items: center;
+            flex-direction: row;
+            justify-content: space-between;
+
+            input.form-control {
+                border-radius: 20px;
+            }
+            .btn-submit {
+                border-radius: 20px;
+                margin-left  : 10px;
+                min-width    : 100px;
+            }
+        }
+    }
+
+    .btn-autoscroll {
+        border-radius: 20px;
+        margin-left  : 10px;
+        width        : 40px;
+    }
+
+    .btn-reply {
+        border-radius: 16px;
+        margin: 10px;
+        color: $gray-600;
+    }
+
+    .reply-to {
+        position : absolute;
+        bottom   : 80px;
+        max-width: 85%;
+        min-width: 50%;
+
+        font-size: small;
+        p {
+            margin: 0px;
+        }
+
+        .btn-del-reply {
+            width        : 20px;
+            height       : 20px;
+            padding      : 0px;
+            border-radius: 10px;
+            position     : absolute;
+            right        : 10px;
+            top          : 10px;
+            font-size    : 12px;
+        }
+    }
+}
+
