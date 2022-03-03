@@ -14,9 +14,9 @@ if (! function_exists('converStatus')) {
 
 if (! function_exists('converStatusFull')) {
     function converStatusFull($stat_id) {
-        $status[1] = 'Widyaiswara';
-        $status[2] = 'Peserta';
-        $status[3] = 'Panitia';
+        $status[1] = 'Instructure';
+        $status[2] = 'Student';
+        $status[3] = 'LO';
 
         return !empty($status[$stat_id]) ? $status[$stat_id] : "";
     }

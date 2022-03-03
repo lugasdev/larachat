@@ -4,7 +4,7 @@
             <div class="card-body p-0">
                 <div class="list-group chat-person-list">
                     <a href="#" class="list-group-item list-group-item-action p-0" aria-current="true">
-                        <img class="ava" src="https://avatars.dicebear.com/api/open-peeps/{{ Auth::user()->name }}.svg?b=%23ffc800&size=64" alt="" srcset="">
+                        <img class="ava" src="{{ Auth::user()->avatar }}" alt="" srcset="">
                         <div class="bio">
                             <p class="name">{{ Auth::user()->name }}</p>
                             <p class="stat">{{ ucwords(converStatusFull(Auth::user()->role)) }}</p>
@@ -29,7 +29,6 @@
                         </a>
                     @endforeach
                 </div>
-                {{-- <p class="p-0 text-center small text-muted">Jumlah Peserta: 32</p> --}}
             </div>
         </div>
     </div>
@@ -39,86 +38,6 @@
                 <div class="row">
                     <div class="col-md-12 chat-conversation">
                         <ul class="list-group list-group-unstyle">
-                            {{-- <li class="list-group-item">
-                                <div class="conversation-list wi">
-                                    <img class="ava" src="https://avatars.dicebear.com/api/miniavs/Muhammad Fahmi.svg?b=%23ffc800&size=64" alt="" srcset="">
-                                    <div class="chat-content">
-                                        <div class="bubble">
-                                            <div class="sender">Muhammad Fahmi Kurniawan</div>
-                                            <div class="msg">
-                                                Selamat Pagi Bapak Ibu Peserta Pelatihan.
-                                            </div>
-                                        </div>
-                                        <div class="send-time">
-                                            12:30
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="list-group-item">
-                                <div class="conversation-list wi hide-ava">
-                                    <img class="ava" src="https://avatars.dicebear.com/api/miniavs/Muhammad Fahmi.svg?b=%23ffc800&size=64" alt="" srcset="">
-                                    <div class="chat-content">
-                                        <div class="bubble">
-                                            <div class="sender">Muhammad Fahmi Kurniawan</div>
-                                            <div class="msg">
-                                                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Excepturi accusamus, exercitationem beatae pariatur voluptate, illum, deserunt saepe laboriosam fugit eos enim repudiandae corporis amet repellat! Temporibus excepturi eaque dolore aliquam!
-                                            </div>
-                                        </div>
-                                        <div class="send-time">
-                                            12:30
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="list-group-item">
-                                <div class="conversation-list">
-                                    <img class="ava" src="https://avatars.dicebear.com/api/miniavs/lugas.svg?b=%23ffc800&size=64" alt="" srcset="">
-                                    <div class="chat-content">
-                                        <div class="bubble">
-                                            <div class="sender">Nama Widyaiswara</div>
-                                            <div class="msg">
-                                                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Excepturi accusamus, exercitationem beatae pariatur voluptate, illum, deserunt saepe laboriosam fugit eos enim repudiandae corporis amet repellat! Temporibus excepturi eaque dolore aliquam!
-                                            </div>
-                                        </div>
-                                        <div class="send-time">
-                                            12:30
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="list-group-item">
-                                <div class="conversation-list right">
-                                    <img class="ava" src="https://avatars.dicebear.com/api/miniavs/lugas.svg?b=%23ffc800&size=64" alt="" srcset="">
-                                    <div class="chat-content">
-                                        <div class="bubble">
-                                            <div class="sender">Nama Widyaiswara</div>
-                                            <div class="msg">
-                                                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                                            </div>
-                                        </div>
-                                        <div class="send-time">
-                                            12:30
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="list-group-item">
-                                <div class="conversation-list right">
-                                    <img class="ava" src="https://avatars.dicebear.com/api/miniavs/lugas.svg?b=%23ffc800&size=64" alt="" srcset="">
-                                    <div class="chat-content">
-                                        <div class="bubble">
-                                            <div class="sender">Nama Widyaiswara</div>
-                                            <div class="msg">
-                                                Excepturi accusamus, exercitationem beatae pariatur voluptate, illum, deserunt saepe laboriosam fugit eos enim repudiandae corporis amet repellat!
-                                            </div>
-                                        </div>
-                                        <div class="send-time">
-                                            12:30
-                                        </div>
-                                    </div>
-                                </div>
-                            </li> --}}
                             @foreach ($chat_conversations as $conversation)
                                 <livewire:chat-conversations :wire:key="$loop->index" :conversation="$conversation" />
                             @endforeach

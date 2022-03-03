@@ -21,13 +21,7 @@ use Illuminate\Support\Facades\Route;
 //     return view('home');
 // });
 
-Route::get('/sending', function () {
-    broadcast(new ChatEvent(['nama' => 'lugas', "pesan" => date("Y-m-d H:i:s") . " ini pesannya", "chat_id" => "1"]));
-});
-
-Route::get('/coba', Counter::class);
+Route::get('/', Registration::class);
+Route::get('/reg', Registration::class);
 
 Route::get('/chat', Chat::class);
-Route::get('/', Chat::class);
-
-Route::get('/reg', Registration::class);

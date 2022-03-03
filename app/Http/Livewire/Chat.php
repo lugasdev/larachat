@@ -15,20 +15,34 @@ class Chat extends Component
 
     public function getListeners()
     {
-        $kelas = session('channel_id');
+        $channel_id = session('channel_id');
 
         return [
-            "echo:channelname_{$kelas},ChatEvent" => 'notifChat',
+            "echo:channel_{$channel_id},ChatEvent" => 'notifChat',
             "addConversation",
             "toggleAutoScroll",
         ];
     }
 
+    /**
+     * change autoscroll status
+     * @param boolean $status
+     *
+     * @return void
+     * @author Lugas Luqman Hakim <lugas.luqman@gmail.com>
+     */
     public function toggleAutoScroll($status)
     {
         $this->autoscroll = $status;
     }
 
+    /**
+     * chat notification
+     * @param array $data
+     *
+     * @return void
+     * @author Lugas Luqman Hakim <lugas.hakim@bpkp.go.id>
+     */
     public function notifChat($data)
     {
         $this->addConversation($data);

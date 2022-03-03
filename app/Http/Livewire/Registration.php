@@ -11,14 +11,14 @@ use Livewire\Component;
 
 class Registration extends Component
 {
-    public $nama;
-    public $kelas;
-    public $status;
+    public $name;
+    public $channel;
+    public $role;
 
     protected $rules = [
-        'nama' => 'required',
-        'kelas' => 'required',
-        'status' => 'required',
+        'name'    => 'required',
+        'channel' => 'required',
+        'role'    => 'required',
     ];
 
     public function submit()
@@ -26,24 +26,22 @@ class Registration extends Component
         $this->validate();
 
         session([
-            'kelas'   => $this->kelas,
+            'channel'   => $this->channel,
         ]);
 
         $user = User::updateOrCreate([
-                        'name' => $this->nama,
+                        'name' => $this->name,
                     ], [
                         'email'    => rand(100,9999) . "@email.com",
                         'password' => Hash::make('password'),
-                        'role'     => $this->status,
-                        'avatar'   => "https://avatars.dicebear.com/api/open-peeps/{$this->nama}.svg?b=%23ffc800&size=64",
+                        'role'     => $this->role,
+                        'avatar'   => "https://avatars.dicebear.com/api/open-peeps/{$this->name}.svg?b=%23ffc800&size=64",
                     ]);
-
-                    // dd($user->id);
 
         Auth::loginUsingId($user->id, true);
 
         $channel = Channel::firstOrCreate([
-                            'name' => $this->kelas
+                            'name' => $this->channel
                         ]);
 
         Conversation::create([
