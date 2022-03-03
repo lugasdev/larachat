@@ -27330,6 +27330,18 @@ readers do not read off random characters that represent icons */
 #chat-page .chat-body .chat-conversation .conversation-list .chat-content .bubble .msg {
   color: #000;
 }
+#chat-page .chat-body .chat-conversation .conversation-list .chat-content .bubble .reply-from {
+  border-radius: 7px;
+  background-color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 10px;
+}
+#chat-page .chat-body .chat-conversation .conversation-list .chat-content .bubble .reply-from .card-body {
+  padding: 5px;
+  font-size: small;
+}
+#chat-page .chat-body .chat-conversation .conversation-list .chat-content .bubble .reply-from .card-body p {
+  margin: 0px;
+}
 #chat-page .chat-body .chat-conversation .conversation-list .chat-content .send-time {
   font-size: small;
   color: #adb5bd;
@@ -27372,4 +27384,34 @@ readers do not read off random characters that represent icons */
   border-radius: 20px;
   margin-left: 10px;
   min-width: 100px;
+}
+#chat-page .btn-autoscroll {
+  border-radius: 20px;
+  margin-left: 10px;
+  width: 40px;
+}
+#chat-page .btn-reply {
+  border-radius: 16px;
+  margin: 10px;
+  color: #6c757d;
+}
+#chat-page .reply-to {
+  position: absolute;
+  bottom: 80px;
+  max-width: 85%;
+  min-width: 50%;
+  font-size: small;
+}
+#chat-page .reply-to p {
+  margin: 0px;
+}
+#chat-page .reply-to .btn-del-reply {
+  width: 20px;
+  height: 20px;
+  padding: 0px;
+  border-radius: 10px;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  font-size: 12px;
 }

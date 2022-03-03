@@ -4,12 +4,12 @@
             <div class="card-body p-0">
                 <div class="list-group chat-person-list">
                     <a href="#" class="list-group-item list-group-item-action p-0" aria-current="true">
-                        <img class="ava" src="https://avatars.dicebear.com/api/miniavs/lugas.svg?b=%23ffc800&size=64" alt="" srcset="">
+                        <img class="ava" src="https://avatars.dicebear.com/api/open-peeps/{{ Auth::user()->name }}.svg?b=%23ffc800&size=64" alt="" srcset="">
                         <div class="bio">
-                            <p class="name">Lugas Luqmanul Hakim</p>
-                            <p class="stat">Widyaiswara</p>
+                            <p class="name">{{ Auth::user()->name }}</p>
+                            <p class="stat">{{ ucwords(converStatusFull(Auth::user()->role)) }}</p>
                         </div>
-                        <p class="m-0 last-respose-time">09:00</p>
+                        {{-- <p class="m-0 last-respose-time">09:00</p> --}}
                     </a>
                   </div>
             </div>
@@ -18,48 +18,18 @@
         <div class="card mt-4">
             <div class="card-body p-0">
                 <div class="list-group chat-person-list">
-                    <a href="#" class="list-group-item p-0">
-                        <img class="ava" src="https://avatars.dicebear.com/api/adventurer/Amalia.svg?b=%23ffc800&size=64" alt="" srcset="">
-                        <div class="bio">
-                            <p class="name">Amalia Septianti</p>
-                            <p class="stat">Peserta</p>
-                        </div>
-                        <p class="m-0 last-respose-time">09:00</p>
-                    </a>
-                    <a href="#" class="list-group-item p-0">
-                        <img class="ava" src="https://avatars.dicebear.com/api/adventurer/Anngi.svg?b=%23ffc800&size=64" alt="" srcset="">
-                        <div class="bio">
-                            <p class="name">Anggi Saputra Lubis</p>
-                            <p class="stat">Peserta</p>
-                        </div>
-                        <p class="m-0 last-respose-time">09:00</p>
-                    </a>
-                    <a href="#" class="list-group-item p-0">
-                        <img class="ava" src="https://avatars.dicebear.com/api/adventurer/Lupita.svg?b=%23ffc800&size=64" alt="" srcset="">
-                        <div class="bio">
-                            <p class="name">Lupita Cyntia</p>
-                            <p class="stat">Peserta</p>
-                        </div>
-                        <p class="m-0 last-respose-time">09:00</p>
-                    </a>
-                    <a href="#" class="list-group-item p-0">
-                        <img class="ava" src="https://avatars.dicebear.com/api/adventurer/Dwi Putri.svg?b=%23ffc800&size=64" alt="" srcset="">
-                        <div class="bio">
-                            <p class="name">Dwi Putri Lestari</p>
-                            <p class="stat">Peserta</p>
-                        </div>
-                        <p class="m-0 last-respose-time">09:00</p>
-                    </a>
-                    <a href="#" class="list-group-item p-0">
-                        <img class="ava" src="https://avatars.dicebear.com/api/adventurer/inka.svg?b=%23ffc800&size=64" alt="" srcset="">
-                        <div class="bio">
-                            <p class="name">Inka Mamamia</p>
-                            <p class="stat">Peserta</p>
-                        </div>
-                        <p class="m-0 last-respose-time">09:00</p>
-                    </a>
+                    @foreach ($participants as $participant)
+                        <a href="#" class="list-group-item p-0">
+                            <img class="ava" src="{{ $participant->user->avatar }}" alt="{{ $participant->user->name }}" >
+                            <div class="bio">
+                                <p class="name">{{ $participant->user->name }}</p>
+                                <p class="stat">{{ converStatusFull($participant->user->role) }}</p>
+                            </div>
+                            <p class="m-0 last-respose-time">{{ date("H:i", strtotime($participant->updated_at)) }}</p>
+                        </a>
+                    @endforeach
                 </div>
-                <p class="p-0 text-center small text-muted">Jumlah Peserta: 32</p>
+                {{-- <p class="p-0 text-center small text-muted">Jumlah Peserta: 32</p> --}}
             </div>
         </div>
     </div>
@@ -150,7 +120,7 @@
                                 </div>
                             </li> --}}
                             @foreach ($chat_conversations as $conversation)
-                                <livewire:chat-conversations :conversation="$conversation" />
+                                <livewire:chat-conversations :wire:key="$loop->index" :conversation="$conversation" />
                             @endforeach
                         </ul>
                     </div>

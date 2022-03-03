@@ -11,3 +11,14 @@ if (! function_exists('converStatus')) {
         return !empty($status[$stat_id]) ? $status[$stat_id] : "";
     }
 }
+
+if (! function_exists('converStatusFull')) {
+    function converStatusFull($stat_id) {
+        $status[1] = 'Widyaiswara';
+        $status[2] = 'Peserta';
+        $status[3] = 'Panitia';
+
+        return !empty($status[$stat_id]) ? $status[$stat_id] : "";
+    }
+}
+

@@ -34,12 +34,10 @@ class ChatEvent implements ShouldBroadcast
     public function broadcastOn()
     {
         return new Channel('channelname_' . $this->data['chat_id']);
-        // return new PrivateChannel('channelname');
-        // return new PresenceChannel('channelname');
     }
 
     public function broadCastWith()
     {
-        return [$this->data];
+        return $this->data;
     }
 }

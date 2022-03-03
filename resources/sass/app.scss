@@ -127,6 +127,18 @@
                         .msg {
                             color: #000;
                         }
+                        .reply-from {
+                            border-radius   : 7px;
+                            background-color: rgb(255 255 255 / 70%);
+                            margin-bottom   : 10px;
+                            .card-body {
+                                padding: 5px;
+                                font-size: small;
+                                p {
+                                    margin: 0px;
+                                }
+                            }
+                        }
                     }
                     .send-time {
                         font-size: small;
@@ -177,9 +189,44 @@
             }
             .btn-submit {
                 border-radius: 20px;
-                margin-left: 10px;
-                min-width: 100px;
+                margin-left  : 10px;
+                min-width    : 100px;
             }
+        }
+    }
+
+    .btn-autoscroll {
+        border-radius: 20px;
+        margin-left  : 10px;
+        width        : 40px;
+    }
+
+    .btn-reply {
+        border-radius: 16px;
+        margin: 10px;
+        color: $gray-600;
+    }
+
+    .reply-to {
+        position : absolute;
+        bottom   : 80px;
+        max-width: 85%;
+        min-width: 50%;
+
+        font-size: small;
+        p {
+            margin: 0px;
+        }
+
+        .btn-del-reply {
+            width        : 20px;
+            height       : 20px;
+            padding      : 0px;
+            border-radius: 10px;
+            position     : absolute;
+            right        : 10px;
+            top          : 10px;
+            font-size    : 12px;
         }
     }
 }

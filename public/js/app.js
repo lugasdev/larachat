@@ -5255,9 +5255,33 @@ module.exports = {
 /*!*****************************!*\
   !*** ./resources/js/app.js ***!
   \*****************************/
-/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var bootstrap__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! bootstrap */ "./node_modules/bootstrap/dist/js/bootstrap.esm.js");
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
+
+ // or get all of the named exports for further usage
+
+
+
+if (document.getElementById('btn-autoscroll') != null) {
+  new bootstrap__WEBPACK_IMPORTED_MODULE_0__.Tooltip(document.getElementById('btn-autoscroll'));
+}
+
+Livewire.on('scrollToBottom', function () {
+  document.querySelector('.chat-conversation').scrollTo({
+    top: document.querySelector('.chat-conversation').scrollHeight,
+    behavior: 'smooth'
+  });
+});
+Livewire.on('focusInputMessage', function () {
+  if (document.getElementById('inputMessage') != null) {
+    document.getElementById("inputMessage").focus();
+  } // document.querySelector('.chat-conversation').scrollTo({ top: document.querySelector('.chat-conversation').scrollHeight, behavior: 'smooth' })
+
+});
 
 /***/ }),
 
@@ -5270,7 +5294,6 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var laravel_echo__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! laravel-echo */ "./node_modules/laravel-echo/dist/echo.js");
-/* harmony import */ var bootstrap__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! bootstrap */ "./node_modules/bootstrap/dist/js/bootstrap.esm.js");
 window._ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
 /**
  * We'll load the axios HTTP library which allows us to easily issue requests
@@ -5302,9 +5325,6 @@ window.Echo = new laravel_echo__WEBPACK_IMPORTED_MODULE_0__["default"]({
   forceTLS: false,
   disableStats: true
 });
- // or get all of the named exports for further usage
-
-
 
 /***/ }),
 

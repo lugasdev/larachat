@@ -35,8 +35,3 @@ window.Echo = new Echo({
     forceTLS: false,
     disableStats: true,
 });
-
-import 'bootstrap';
-
-// or get all of the named exports for further usage
-import * as bootstrap from 'bootstrap';
